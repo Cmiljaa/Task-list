@@ -29,12 +29,14 @@ Route::get('/tasks/{task}', function(Task $task){
 })->name('tasks.show');
 
 
+
 Route::post('/tasks', function(TaskRequest $request){
     $task = Task::create($request -> validated());
     
     return redirect() -> route('tasks.show', ['task' => $task -> id])->with('success', 'Task created successfully!');
 
 })->name('tasks.store');
+
 
 Route::put('/tasks/{task}', function(Task $task, TaskRequest $request){
     $task -> update($request->validated());
@@ -43,11 +45,13 @@ Route::put('/tasks/{task}', function(Task $task, TaskRequest $request){
 
 })->name('tasks.update');
 
+
 Route::delete('/tasks/{task}', function(Task $task){
     $task -> delete();
 
     return redirect(route('tasks.index'))->with('success', 'Successfully deleted task!');
 })->name('tasks.destroy');
+
 
 Route::put('/tasks/{task}/toggle-complete', function(Task $task){
     $task -> toggleCompleted();
@@ -56,19 +60,4 @@ Route::put('/tasks/{task}/toggle-complete', function(Task $task){
 })->name('tasks.toggle-complete');
 
 
-/*
-Route::get('/hello', function(){
-    return "hello";
-})->name('hello');
-
-Route::get('/hallo', function(){
-    return redirect() -> route('');
-});
-
-
-
-Route::get('/greet/{name}', function($name){
-    return "Hello {$name}";
-});*/
-
-Route::fallback(function() {echo "still get somewhere!";});
+Route::fallback(function() {echo "Still get somewhere!";});

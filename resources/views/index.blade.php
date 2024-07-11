@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Hello i am a blade template!')
+@section('title', 'The list of tasks')
 
 @section('content')
     <div>
-        <a href="{{route('tasks.create')}}">Add task</a>
+        <p><a href="{{route('tasks.create')}}" class="link">Add task!</a></p>
     </div>
     @forelse ($tasks as $task)
     <a href="{{ route('tasks.show', ['task' => $task->id]) }}">

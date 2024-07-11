@@ -16,27 +16,27 @@
         @endisset
         <div>
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" value="{{$task->title ?? old('title')}}">
+            <input type="text" class="form-control" name="title" id="title" value="{{$task->title ?? old('title')}}">
             @error('title')
                 <p class="error-message">{{$message}}</p>
             @enderror
         </div>
         <div>
             <label for="title">Description</label>
-            <textarea name="description" id="description" rows="5">{{$task->description ?? old('description')}}</textarea>
+            <textarea name="description" id="description" class="form-control"  rows="5">{{$task->description ?? old('description')}}</textarea>
             @error('description')
                 <p class="error-message">{{$message}}</p>
             @enderror
         </div>
         <div>
             <label for="title">Long Description</label>
-            <textarea name="long_description" id="long_description" rows="10">{{$task->long_description ?? old('long_description')}}</textarea>
+            <textarea name="long_description" id="long_description" class="form-control"  rows="10">{{$task->long_description ?? old('long_description')}}</textarea>
             @error('long_description')
                 <p class="error-message">{{$message}}</p>
             @enderror
         </div>
         <div>
-            <button type="submit">
+            <button type="submit" class="btn btn-primary">
                 @if(isset($task))
                     Update task
                 @else
