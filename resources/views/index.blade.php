@@ -6,7 +6,7 @@
         <p><a href="{{route('tasks.create')}}" class="link">Add task!</a></p>
     </div>
     @forelse ($tasks as $task)
-    <a href="{{ route('tasks.show', ['task' => $task->id]) }}">
+    <a href="{{ route('tasks.show', ['task' => $task]) }}">
         @if ($task->completed)
             <p><s>{{ $task->title }}</s></p>
         @else
